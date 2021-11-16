@@ -2,17 +2,20 @@ import strategy.LeituraRetornoBancoBradesco;
 import strategy.LeituraRetornoBancoBrasil;
 import strategy.ProcessarBoletos;
 
-@SuppressWarnings("all")
 public class Principal {
 
     public static void main(String[] args) {
-        /*final ProcessarBoletos processarBoletos = new ProcessarBoletos(new LeituraRetornoBancoBrasil());
-        String nomeArquivo = Principal.class.getResource("banco-brasil-1.csv").getPath();*/
+        final ProcessarBoletos processarBoletoBB = new ProcessarBoletos(new LeituraRetornoBancoBrasil());
+        String boletoBB = Principal.class.getResource("banco-brasil-1.csv").getPath();
 
-        final ProcessarBoletos processarBoletos = new ProcessarBoletos(new LeituraRetornoBancoBradesco());
-        String nomeArquivo = Principal.class.getResource("bradesco-1.csv").getPath();
+        final ProcessarBoletos processarBoletoBradesco = new ProcessarBoletos(new LeituraRetornoBancoBradesco());
+        String boletoBradesco = Principal.class.getResource("bradesco-1.csv").getPath();
 
-        System.out.println("Lendo arquivo "+ nomeArquivo +"\n");
-        processarBoletos.processar(nomeArquivo);
+        processarBoletoBradesco.processar(boletoBradesco);
+        System.out.println("Lendo arquivo "+ boletoBradesco +"\n");
+
+        processarBoletoBB.processar(boletoBB);
+        System.out.println("Lendo arquivo "+ boletoBB +"\n");
     }//metodo
+
 }//classe
