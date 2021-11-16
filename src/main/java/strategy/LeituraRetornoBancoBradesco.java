@@ -6,10 +6,10 @@ import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("all")
 public class LeituraRetornoBancoBradesco implements LeituraRetorno {
 
     @Override
@@ -28,7 +28,7 @@ public class LeituraRetornoBancoBradesco implements LeituraRetorno {
                 boleto.setAgencia(vetor[2]);
                 boleto.setContaBancaria(vetor[3]);
                 boleto.setDataVencimento(LocalDate.parse(vetor[4], FORMATO_DATA));
-                boleto.setDataPagamento(LocalDate.parse(vetor[5], FORMATO_DATA_HORA).atTime(23, 59, 59));
+                boleto.setDataPagamento(LocalDateTime.parse(vetor[5], FORMATO_DATA_HORA));
                 boleto.setCpfCliente(vetor[6]);
                 boleto.setValor(Double.parseDouble(vetor[7]));
                 boleto.setMulta(Double.parseDouble(vetor[8]));

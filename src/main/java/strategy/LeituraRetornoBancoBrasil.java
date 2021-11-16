@@ -9,7 +9,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("all")
 public class LeituraRetornoBancoBrasil implements LeituraRetorno {
 
     @Override
